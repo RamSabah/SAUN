@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container container_edit">
+  <div class="jumbotron" style="background: #136291; color: white">
+    <h1 style="color: white">Fuseki server control panel</h1>
+
+
+    <p>Upload your file and select the Solution from the menu then click render. If you have an uncertain array you can uploadet to.</p>
+        <form action="{{url_for('local')}}" method="post">
+            <button name="loadPage" value="solutions" class="btn btn-outline-light">Solutions</button>
+          <button name="loadPage" value="querys" class="btn btn-outline-light">Query</button>
+             <button name="loadPage" value="graph" class="btn btn-outline-light">Graph</button>
+            <button name="loadPage" value="fuseki-control" class="btn btn-outline-light">Fuseki Control</button>
+            <button name="loadPage" value="ontology-setup" class="btn btn-outline-light">Ontology setup</button>
+            <button name="loadPage" value="gallary" class="btn btn-outline-light">Gallary</button>
+      </form>
+
+
+  </div>
+  <p>Current Data appear light. Change the Data and click update fuseki Server.</p>
+    <form action="{{url_for('fuseki')}}" method="post" enctype="multipart/form-data">
+        <label class="fuseki_menu">Fuseki Dataset Name </label> <input  class="form-control mx-sm-3" type="text" name="datasetname" placeholder="{{ datasetName }}"> </br>
+        <label class="fuseki_menu">Adress        </label> <input class="form-control mx-sm-3"  type="text" name="ip" placeholder="{{ ip }}"> </br>
+        <label class="fuseki_menu">Port        </label> <input class="form-control mx-sm-3"  type="text" name="port" placeholder="{{ port }}"> </br>
+        <label class="fuseki_menu">Memory        </label> <input class="form-control mx-sm-3" type="text" name="memory" placeholder="{{ memory }}"> </br>
+        <input type="submit" name="set_fuseki_data" value="Update fuseki server" class="btn btn-secondary" placeholder="not define"> </br>
+
+
+</form>
+
+
+</div>
+
+
+</body>
+</html>

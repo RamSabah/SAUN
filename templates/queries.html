@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div class="container container_edit">
+  <div class="jumbotron" style="background: #136291; color: white">
+    <h1 style="color: white">Queries</h1>
+
+
+    <p>Select the Query to run.</p>
+        <form action="{{url_for('local')}}" method="post">
+            <button name="loadPage" value="solutions" class="btn btn-outline-light">Solutions</button>
+          <button name="loadPage" value="querys" class="btn btn-outline-light">Query</button>
+             <button name="loadPage" value="graph" class="btn btn-outline-light">Graph</button>
+            <button name="loadPage" value="fuseki-control" class="btn btn-outline-light">Fuseki Control</button>
+            <button name="loadPage" value="ontology-setup" class="btn btn-outline-light">Ontology setup</button>
+            <button name="loadPage" value="gallary" class="btn btn-outline-light">Gallary</button>
+      </form>
+
+
+  </div>
+
+  <p>{{ message}}</p> <div class="lds-dual-ring" id="loading2" onload="tog()"></div>
+    <form action="{{ url_for('fuseki_status_changer') }}" method="post"><button name="change_fuseki_status_button" class="btn btn-outline-danger" type="submit">Switch Fuseki</button>
+
+
+    </form>
+  <form action=""></form>
+    <form action="{{url_for('query')}}" method="post" enctype="multipart/form-data">
+    <input type="text" id="input_search" onkeyup="impro()" placeholder="search...">
+    <table id="content_table">
+    <tr>
+        <th>Subject</th>
+        <th>Pradicate</th>
+        <th>Object</th>
+    </tr>
+    {% if data |length > 0 %}
+        {% for i in data %}
+            <tr>
+            <td>{{ i[0]}}</td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2]}}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+</form>
+
+
+</div>
+ <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+
+<script type="text/javascript">
+    // Single search: Not in use!
+function search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("input_search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("content_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+              } else {
+                  tr[i].style.display = "none";
+              }
+          }
+      }
+
+}
+
+
+
+function impro() {
+
+// Declare variables
+var input = document.getElementById("input_search");
+var filter = input.value.toUpperCase();
+var table = document.getElementById("content_table");
+var trs = table.tBodies[0].getElementsByTagName("tr");
+
+// Loop through first tbody's rows
+for (var i = 0; i < trs.length; i++) {
+
+  // define the row's cells
+  var tds = trs[i].getElementsByTagName("td");
+
+  // hide the row
+  trs[i].style.display = "none";
+
+  // loop through row cells
+  for (var i2 = 0; i2 < tds.length; i2++) {
+
+    // if there's a match
+    if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+      trs[i].style.display = "";
+
+      // skip to the next row
+      continue;
+
+    }
+  }
+}
+
+}
+</script>
+
+</body>
+</html>

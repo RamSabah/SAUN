@@ -1,0 +1,11 @@
+digraph G { 
+"http://localhost:3030/Coin_5" -> "http://nomisma.org/ontology#hasMint" [label="http://nomisma.org/id/comama"];
+"http://localhost:3030/Coin_5" -> "http://nomisma.org/ontology#hasManufacture" [label="http://nomisma.org/id/struck"];
+"b0" -> "http://www.cidoc-crm.org/cidoc-crm/P141_assigned" [label="http://nomisma.org/id/struck"];
+"b0" -> "http://collection.britishmuseum.org/id/ontology/PX_likelihood" [label="http://nomisma.org/id/uncertain_value"];
+"b0" -> "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" [label="http://www.cidoc-crm.org/cidoc-crm/E13"];
+"b0" -> "http://collection.britishmuseum.org/id/ontology/PX_Property" [label="http://nomisma.org/ontology#hasManufacture"];
+"b0" -> "http://www.cidoc-crm.org/cidoc-crm/P140_assigned_attribute_to" [label="http://localhost:3030/Coin_4"];
+"http://localhost:3030/Coin_4" -> "http://nomisma.org/ontology#hasMint" [label="http://nomisma.org/id/comama"];
+"http://localhost:3030/Coin_4" -> "http://nomisma.org/ontology#hasManufacture" [label="http://nomisma.org/id/struck"];
+}

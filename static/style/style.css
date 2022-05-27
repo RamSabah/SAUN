@@ -1,0 +1,248 @@
+/* GENERAL PAGES CONTENT*/
+.container_edit{
+    background-color: white;
+
+}
+.container{
+    background-color: white;
+
+}
+.jumbotron{
+    width: 100%
+}
+
+.solutions_images{
+    height: 150px;
+    width: 450px;
+}
+
+.imageContainer > img:hover {
+  width: 500px;
+  height: 200px;
+}
+.imageDIV{
+    height: 100px;
+    width: 100px;
+    margin-top: 5%;
+    margin-left: 100px;
+    padding: 30px;
+
+}
+
+.imageBorder{
+    border: #2b542c;
+    border-style: solid;
+
+}
+#footer {
+    position: fixed;
+    height: 50px;
+    background-color: red;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+
+/*Part for the Solutions Table*/
+.container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+
+}
+
+
+
+/*Part for the Graph Menu*/
+li {
+ display: block;
+ transition-duration: 0.5s;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+
+.btn-outline-info-add{
+    width: 100%;
+    color: #0c0c0c;
+    background-color: #0c0c0c;
+
+}
+
+.fuseki_menu{
+    color: #285e8e;
+}
+/*END OF GENERAL PAGE CONTENT*/
+
+
+/*PAGE GALLARY */
+
+#delete_button_div{
+    float: right;
+}
+#addImageGallaryButton{
+}
+#imageNumber{
+    color: #b97314;
+}
+
+input[type=file]::file-selector-button {
+  border: 2px solid rgba(182, 117, 4, 0.83);
+  padding: .2em .4em;
+  border-radius: .2em;
+  background-color: #fddf9d;
+  transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #f3912c;
+  border: 2px solid #814f03;
+}
+
+/*END OF PAGE GALLARY*/
+
+/*PAGE ONTOLOGY SETUP*/
+
+/*END OF PAGE ONTOLOGY SETUP*/
+
+/*IMAGE HOVER (index.html)*/
+.hover_img a { position:relative; }
+.hover_img a span { position:fixed; display:none; z-index:99; margin-left: 500px; top: 50%; bottom: 50%; transform: translate(-50%, -50%);}
+.hover_img a:hover span { display: block; }
+.image_size_{height: 180px; border: solid #283748; background-color: white; border-width: 5px;}
+
+.show_graph_sample{
+}
+/*END OF IMAGE HOVER*/
+
+
+/*LOADING  */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #285e8e;
+  border-color: #4a5595 transparent #4a5595 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*Loading Mini*/
+.lds-dual-ring_mini {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+    margin-right: 20px;
+}
+.lds-dual-ring_mini:after {
+  content: " ";
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #285e8e;
+  border-color: #459163 transparent #459163 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+
+}
+@keyframes lds-dual-ring_mini {
+  0% {
+    transform: rotate(0deg);
+
+  }
+  100% {
+    transform: rotate(360deg);
+
+  }
+}
+
+
+
+
+.invisibility{
+    display: none;
+    visibility: hidden;
+}
+
+#invisibility{
+    display: none;
+    visibility: hidden;
+}
+
+
+/*END OF LOADING */
+
+.standard_{
+    font-size: 24px;
+    color: gray;
+    tab-size: 2;
+
+}
+.standard_.change_to_green{
+    color: green;
+}
+
+.loading_box{
+
+}
+
+
+
+
+/*SWITCH BUTTON*/
+
+p,
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}

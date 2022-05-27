@@ -1,0 +1,10 @@
+digraph G { 
+label="Solution Graph";
+"b0" -> "nmo:comama" [label="nm:P141_assigned"];
+"b0" -> "nmo:uncertain_value" [label="nmo:PX_likelihood"];
+"b0" -> "nm:E13" [label="rdf:type"];
+"b0" -> "nmo:hasMint" [label="nmo:PX_Property"];
+"b0" -> "notinclude:Coin_4" [label="nm:P140_assigned_attribute_to"];
+"notinclude:Coin_5" -> "nmo:comama" [label="nmo:hasMint"];
+"notinclude:Coin_4" -> "nmo:comama" [label="nmo:hasMint"];
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+<div class="container container_edit">
+  <div class="jumbotron" style="background: #136291; color: white">
+    <h1 style="color: white">SAUN
+    </h1>
+
+
+    <p>Upload your file and select the Solution from the menu then click render. If you have an uncertain array you can uploadet to.</p>
+
+        <form action="{{url_for('local')}}" method="post">
+            <button name="loadPage" value="solutions" class="btn btn-outline-light">Solutions</button>
+          <button name="loadPage" value="querys" class="btn btn-outline-light">Query</button>
+            <button name="loadPage" value="graph" class="btn btn-outline-light">Graph</button>
+            <button name="loadPage" value="fuseki-control" class="btn btn-outline-light">Fuseki Control</button>
+            <button name="loadPage" value="ontology-setup" class="btn btn-outline-light">Ontology setup</button>
+            <button name="loadPage" value="gallary" class="btn btn-outline-light">Gallary</button>
+      </form>
+
+
+  </div>
+
+
+
+
+  <p>Upload a file and select the export format then click on Generate Solution. The file will be saved under Downloads.</p> <div class="lds-dual-ring" id="loading2" onload="tog()"></div>
+    <a href="{{ url_for('.download') }}" id="{{ g }}" style="display: none">Download</a>
+
+
+    <form action="{{url_for('uploadFile', file=file)}}" method="post" enctype="multipart/form-data" id="fm">
+    <p>Select export format</p>
+
+<div>
+  <input type="checkbox" id="xml" name="xml"
+         checked>
+  <label for="xml">XML/RDF</label>
+</div>
+
+<div>
+  <input type="checkbox" id="turtle" name="turtle">
+  <label for="turtel">Turtel</label>
+</div>
+
+        <input type="file" id="inputFile" name="file">
+        </br></br></br>
+
+
+            <div class="container">
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+		      <th scope="col">Solution</th>
+		      <th scope="col">Visualize</th>
+		      <th scope="col">Description</th>
+		      <th scope="col">Triples</th>
+
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 1" id="s1" onclick="loading_()"></th>
+		      <td class="w-25">
+                 <div class="hover_img">
+                 <a href="#" class="">View sample<span><img class="image_size_" src="{{ image[0]}}"/></span></a>
+                 </div>
+
+
+
+		      </td>
+		      <td>RDF-Reification-Based Approach by CIDOC CRM</td>
+		      <td>7</td>
+
+		    </tr>
+		    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 2" id="s2" onclick="loading_()"></th>
+		      <td class="w-25">
+                  <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[1]}}"/></span></a>
+                 </div>
+		      </td>
+		      <td>Additional Resource Directly to the Property-Path, by Dr. Tolle & Dr. Wigg-Wolf.</td>
+		      <td>4</td>
+
+		    </tr>
+
+
+          	    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 3" id="s3" onclick="loading_()"></th>
+		      <td class="w-25">
+                  <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[2]}}"/></span></a>
+                 </div>
+
+		      </td>
+		      <td>Assigning Reliability as a Sub-Class-of E16, by Prof. Niccolucci & Prof. Hermon</td>
+		      <td>10 + 4</td>
+
+		    </tr>
+
+
+          	    <tr>
+		      <th scope="row"> <input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 4" id="s4" onclick="loading_()"></th>
+		      <td class="w-25">
+
+                                   <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[3]}}" /></span></a>
+                 </div>
+		      </td>
+		      <td>Using Classes/Properties from CRMinf, by Prof. Niccolucci & Prof. Hermon</td>
+		      <td>8</td>
+
+		    </tr>
+
+
+          	    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 5" id="s5" onclick="loading_()"></th>
+		      <td class="w-25">
+                                    <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[4]}}" /></span></a>
+                 </div>
+
+		      </td>
+		      <td>Expanding CRM-Properties with the Property Class PC and .2 Properties, by Dr. Doerr.</td>
+		      <td>5 + 14</td>
+
+
+          	    <tr>
+		      <th scope="row">   <input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 6" id="s6" onclick="loading_()"></th>
+		      <td class="w-25">
+                                    <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[6]}}" /></span></a>
+                 </div>
+
+
+		      </td>
+		      <td>RDF-Reification with Extended Date/Time Format Ontology (EDTFO)</td>
+		      <td>6</td>
+
+		    </tr>
+
+
+
+          	    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 7" id="s7" onclick="loading_()"></th>
+		      <td class="w-25">
+                                    <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[6]}}" /></span></a>
+                 </div>
+
+
+		      </td>
+		      <td>Based on Solution 2 and Extended Date/Time Format Ontology (EDTFO)</td>
+		      <td>4</td>
+
+		    </tr>
+
+
+
+          	    <tr>
+		      <th scope="row"><input type="submit" class="btn btn-outline-secondary btn-outline-info-add" name="uploadFile" value="Generate Solution 8" id="s8" onclick="loading_()"></th>
+		      <td class="w-25">
+                  <div class="hover_img">
+                 <a href="#" class="show_graph_sample">View sample<span><img class="image_size_" src="{{ image[7]}}"/></span></a>
+                 </div>
+
+
+		      </td>
+		      <td>A New Approach Based on Using un:hasUncertainty </td>
+		      <td>3</td>
+
+		    </tr>
+		  </tbody>
+		</table>
+    </div>
+  </div>
+</div>
+
+</form>
+
+<script type="text/javascript" src="{{ url_for('static', filename='map.js') }}">
+
+</script>
+</div>
+
+</body>
+
+</html>
