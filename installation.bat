@@ -29,5 +29,16 @@ pip install memory-profiler
 pip install pandas
 
 
-echo "Done!"
+echo "Done! install Libs"
+
+mkdir rdf
+mkdir benchmark
+mkdir csv
+mkdir dist
+mkdir excelFiles
+mkdir readyToRun
+
+echo "Directorys created"
+
+python app.py
 
