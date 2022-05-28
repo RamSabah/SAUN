@@ -6,7 +6,7 @@ def connector_():
         port=3306,
         user="root",
         password="admin",
-        database="querys"
+        database="queries"
         )
     return database_connection
 
@@ -35,7 +35,7 @@ def readStatments():
 def databaseInsertion(solution,querynumber,description):
     database = connector_()
     cursor_ = database.cursor()
-    statment = "INSERT INTO querys (graph, querynumber, description) VALUES (%s, %s, %s)"
+    statment = "INSERT INTO queries (graph, querynumber, description) VALUES (%s, %s, %s)"
     values = (str(solution),str(querynumber), description)
     cursor_.execute(statment, values)
     database.commit()
