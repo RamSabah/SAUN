@@ -15,7 +15,7 @@ def dataReader():
     resultArray = []
     database = connector_()
     cursor_ = database.cursor()
-    cursor_.execute("SELECT * FROM querys")
+    cursor_.execute("SELECT * FROM queries")
     result = cursor_.fetchall()
     for entrys in result:
         print(entrys)
