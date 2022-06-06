@@ -119,7 +119,7 @@ def dynmaicTest():
     connect_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     check_socket = connect_socket.connect_ex(("localhost",3030))
     # Updating the server
-    for s in range(8,9):
+    for s in range(1,9):
         time.sleep(3)
         file = open("script/fuseki_data_script.json")
         jsonData = json.load(file)
