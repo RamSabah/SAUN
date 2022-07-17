@@ -28,6 +28,8 @@ pip install memory-profiler
 
 pip install pandas
 
+pip install openpyxl
+
 
 echo "Done! install Libs"
 
